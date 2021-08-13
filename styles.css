@@ -1,0 +1,515 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.main-nav {
+  width: 100%;
+  height: 10rem;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo a {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+  color: #333;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  outline: 2px solid #333;
+  padding: 1rem 2rem;
+}
+
+.hamburger-menu {
+  height: 5rem;
+  width: 5rem;
+  /* background-color: #eee; */
+  border-radius: 0.4rem;
+  /* box-shadow: 0.5rem 0.5rem 1rem #cacaca, -0.5rem -0.5rem 1rem #fff; */
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* .hamburger-menu:hover {
+  box-shadow: inset 0.1em 0.1rem 0.5rem #cacaca,
+    inset -0.1rem -0.1rem 0.5rem #fff;
+} */
+
+.bar {
+  width: 3rem;
+  height: 2px;
+  background-color: #333;
+  display: inline-block;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.bar::before,
+.bar::after {
+  content: '';
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: #333;
+  transition: all 0.5s;
+}
+
+.bar::before {
+  top: -0.8rem;
+}
+
+.bar::after {
+  top: 0.8rem;
+}
+
+.open .bar {
+  background-color: transparent;
+}
+
+.open .bar::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+.open .bar::after {
+  top: 0;
+  transform: rotate(-135deg);
+}
+
+.nav-list {
+  width: 50rem;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #eee;
+  transform: translateX(55rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.1);
+  z-index: 1500;
+  transition: transform 0.5s;
+}
+
+.open .nav-list {
+  transform: translateX(0);
+}
+
+.nav-item {
+  list-style: none;
+  border-bottom: 2px solid crimson;
+}
+
+.nav-link {
+  text-decoration: none;
+  display: block;
+  color: #333;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  transition: color 0.5s;
+}
+
+.nav-link:hover {
+  color: crimson;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: url('images/car-accident.jpg') center no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.hero-clipped {
+  width: 60%;
+  height: inherit;
+  background-color: rgba(221, 221, 221, 0.9);
+  position: absolute;
+  top: 0;
+  right: 0;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+  transform-origin: right;
+  z-index: 10;
+}
+
+.hero-textbox {
+  width: 100%;
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  line-height: 1.5;
+  color: #333;
+  padding: 1rem;
+  z-index: 200;
+}
+
+.main-heading {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+  margin-left: 10%;
+}
+
+.sub-heading {
+  font-size: 1.6rem;
+  font-weight: 100;
+  letter-spacing: 0.5rem;
+}
+
+.heading-secondary {
+  font-size: 2.6rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #fff;
+  background-color: crimson;
+  padding: 1rem 4rem;
+  margin-top: 3rem;
+  margin-bottom: 5%;
+
+  border: none;
+  border-radius: 0.4rem;
+  box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.cta-btn:hover::after {
+  transform: scaleX(1.2) scaleY(1.6);
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+/* @media screen and (max-width: 1400px) {
+  .hero-clipped {
+    width: 100%;
+    height: 75vh;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
+  }
+
+  .logo a {
+    color: #333;
+    outline-color: #333;
+  }
+} */
+
+@media screen and (max-width: 760px) {
+  .nav-list {
+    width: 30rem;
+  }
+
+  .main-heading {
+    font-size: 4rem;
+  }
+
+  .sub-heading {
+    font-size: 1.2rem;
+  }
+
+  .cta-btn {
+    padding: 1rem 2.5rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .main-heading {
+    font-size: 2.5rem;
+  }
+
+  .sub-heading {
+    font-size: 1rem;
+  }
+
+  .cta-btn {
+    margin-top: 3rem;
+  }
+}
+
+/* Form styling */
+
+.form {
+  background-color: white;
+  opacity: 1;
+  border-radius: 5px;
+  padding: 1vw;
+  width: 40vw;
+  position: absolute;
+  /* top: 4vw; */
+  right: 8vw;
+  box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
+  z-index: -2;
+
+  /* @media (max-width: 900px) {
+    background-color: white;
+    border-radius: 5px;
+    padding: 1vw;
+    width: 80vw;
+    position: relative;
+    right: -10vw;
+    box-shadow: none;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  } */
+}
+
+.form__group:not(:last-child) {
+  margin-bottom: 0.3rem;
+}
+
+.form__input {
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: inherit;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  background-color: rgba(white, 0.5);
+  border: none;
+  border-bottom: 1px solid grey;
+  width: 90%;
+  display: block;
+  transition: all 0.3s;
+}
+.form__input:focus {
+  outline: none;
+  box-shadow: 0 0.5rem 1rem rgba(black, 0.1);
+  border-bottom: 3px solid crimson;
+}
+
+.form__input:focus:invalid {
+  border-bottom: 3px solid crimson;
+}
+
+.form__input::-webkit-input-placeholder {
+  color: black;
+}
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 1rem;
+  margin-top: 0.6rem;
+  display: block;
+  transition: all 0.3s;
+}
+
+.form__title {
+  font-size: 1.4rem;
+}
+
+.form__radio-label {
+  font-size: 1.4rem;
+  margin-right: 5%;
+}
+
+.form-group {
+  margin-top: 30px;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-3rem);
+}
+
+.input-group.date {
+  margin: 0 10%;
+}
+
+.heading-secondary {
+  color: crimson;
+  text-transform: uppercase;
+}
+
+.heading-primary {
+  color: #fff;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* 
+      animation-iteration-count: 3; 
+      animation-delay: 3s; 
+      */
+}
+
+.paragraph {
+  font-size: 1rem;
+}
+
+.paragraph:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.container {
+  display: block;
+  position: relative;
+  font-size: 1.6rem;
+  padding-left: 35px;
+  margin: 2%;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-heading {
+  font-size: 1.6rem;
+  font-family: inherit;
+}
+
+.radio-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.selection-container {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin-top: -10px;
+  margin-left: 3%;
+  margin: -10px 10px 10px 10px;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: crimson;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: crimson;
+}
+
+.info-container {
+  font-size: 2rem;
+  text-align: center;
+  padding: 10%;
+  background-color: rgb(236, 236, 236);
+}
+
+.info-header {
+  font-size: 6rem;
+  font-weight: 800;
+}
+
+.counts {
+  font-size: 10rem;
+  font-weight: 800;
+  color: crimson;
+}
+
+.percent {
+  font-size: 10rem;
+  font-weight: 800;
+  color: crimson;
+}
