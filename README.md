@@ -4,4 +4,4 @@
 
 HTML, SASS, JavaScript with bootstrap calendar and GreenSock animations
 
-view live page: https://sharp-tesla-08be36.netlify.app/index.html?
+view live page: https://sharp-tesla-08be36.netlify.app/index.html
