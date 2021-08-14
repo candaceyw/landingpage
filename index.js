@@ -1,3 +1,6 @@
+gsap.registerPlugin(ScrollTrigger);
+
+
 // Navigation toggle
 const mainNav = document.querySelector('.main-nav');
 const hamburgerMenu = document.querySelector('.hamburger-menu');
@@ -30,19 +33,54 @@ gsap.fromTo('.hero-textbox', {yPercent: 40, opacity: 0}, {duration: 1, delay: 1.
 
 // Number Counter
 
-$(".counts").each(function(index, element) {
-  var count = $(this),
-      zero = {val:0},
-      num = count.data("number"),
-      split = (num + "").split("."),
-      decimals = split.length > 1 ? split[1].length : 0;
+// $(".counts").each(function(index, element) {
+//   var count = $(this),
+//       zero = {val:0},
+//       num = count.data("number"),
+//       split = (num + "").split("."),
+//       decimals = split.length > 1 ? split[1].length : 0;
 
-    gsap.to(zero, {
-      val: num,
-      duration: 2,
-      scrollTrigger: element,
-      onUpdate: function() {
-        count.text(zero.val.toFixed(decimals));
-      }
-    });
+//     gsap.to(zero, {
+//       val: num,
+//       duration: 2,
+      
+  
+//       scrollTrigger: element,
+//       onUpdate: function() {
+//         count.text(zero.val.toFixed(decimals));
+//       },
+      
+//     },);
+// });
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+const numbers = document.querySelectorAll('.counters');
+
+var tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: numbers,
+    start: 'top 80%',
+    end: "top 30%",
+    // markers: true,
+    toggleActions: 'restart pause resume pause',
+  },
 });
+
+gsap.utils.toArray('.counterOne').forEach(function (el) {
+  var target = { val: 0 };
+  tl.to(target, {
+    val: el.getAttribute('data-number'),
+    duration: 1,
+    onUpdate: function () {
+      el.innerHTML = Math.ceil(target.val.toFixed(1));
+
+    },
+  });
+});
+
+
+
+tl.play();

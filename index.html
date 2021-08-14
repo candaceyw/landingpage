@@ -42,13 +42,12 @@
   <section class="hero">
     <div class="hero-clipped">
       <div class="hero-textbox">
-        <!-- <h1 class="main-heading">Hurt or Injured in a Car Accident?</h1> -->
         <h2 class="sub-heading"></h2>
+
 
         <!-- Form Start-->
 
-
-        <div class="book__form">
+        <div class="book__form" id="form">
           <form action="./confirm.html" class="form">
             <div class="u-margin-bottom-medium">
               <h2 class="heading-secondary">
@@ -58,9 +57,9 @@
 
 
             <div class="form__group">
-              <label class="control-label">Date of the Accident:</label>
+              <label class="form__label" id="date-header">Date of the Accident:</label>
               <div class='form__input input-group date' id='datetimepicker4'>
-                <input type='text' class="form-control" required />
+                <input type='text' class="form-input" placeholder="Date of the Accident" required />
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -153,18 +152,26 @@
   </section>
   <div class="info-section">
     <h2 class="info-header">Don't suffer alone! </h2><br />
-    <p class="info-text">If you've been hurt in a vehicle accident within the last 2 years, <br />you are entitled to
+    <p class="info-text">If you've been hurt in a vehicle accident within the last 2 years, you are entitled to
       cash
       compensation. </p>
   </div>
 
+  <div class="arrow-down"></div>
+
   <div class="info-container ">
 
     <h2 class="info-subheading">Our FREE program averages</h2>
-    <span class="counts" data-number="360">0</span><span class="percent">%</span>
+    <div class="counters">
+      <p><span class="counterOne" data-number="360">0</span><span class="percent">%</span></p>
+
+    </div>
+    <!-- <span class="counts" data-number="360">0</span><span class="percent">%</span> -->
     <h2 class="info-subheading">higher payouts than going alone!</h2>
 
-    <button class="cta-btn">Get More Information Now</button>
+    <form method="get" action="#form" class="secondary-button">
+      <button class="cta-btn">Get More Information Now</button>
+    </form>
 
     <!-- <a href="#main-form"" class=" btn btn--red"></a> -->
 

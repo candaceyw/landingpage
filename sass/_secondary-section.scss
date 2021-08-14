@@ -6,11 +6,20 @@
   text-align: center;
 }
 
+.arrow-down {
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-left: 20rem solid transparent;
+  border-right: 20rem solid transparent;
+  border-top: 5rem solid rgb(32, 32, 32);
+}
+
 .info-container {
   font-size: 2rem;
   text-align: center;
-  padding: 8%;
-  background-color: rgb(236, 236, 236);
+  padding: 12% 8% 3% 8%;
+  margin-top: -10rem;
 }
 
 .info-header {
@@ -19,15 +28,16 @@
 }
 
 .info-text {
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 1.6;
+  letter-spacing: 0.1rem;
 }
 
 .info-subheading {
   font-size: 4rem;
 }
 
-.counts {
+.counterOne {
   font-size: 10rem;
   font-weight: 800;
   color: crimson;
@@ -43,4 +53,10 @@
   width: 100%;
   background-color: crimson;
   height: 10px;
+}
+
+.heading-confirm {
+  width: 90%;
+  font-weight: 800;
+  margin: 0 auto;
 }
