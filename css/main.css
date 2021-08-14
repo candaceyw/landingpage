@@ -157,7 +157,7 @@ header {
 
 .hero {
   width: 100%;
-  height: 850px;
+  height: 100rem;
   background: url("../images/car-accident.jpg") center no-repeat;
   background-size: cover;
   position: relative;
@@ -490,7 +490,6 @@ header {
   }
 
   .hero-textbox {
-    top: 55%;
     left: 55%;
   }
 

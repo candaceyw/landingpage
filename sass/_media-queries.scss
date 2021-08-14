@@ -1,16 +1,3 @@
-// @media screen and (max-width: 1400px) {
-//   .hero-clipped {
-//     width: 100%;
-//     height: 75vh;
-//     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
-//   }
-
-//   .logo a {
-//     color: #333;
-//     outline-color: #333;
-//   }
-// }
-
 @media screen and (max-width: 760px) {
   .nav-list {
     width: 30rem;
@@ -44,7 +31,6 @@
   }
 
   .hero-textbox {
-    top: 55%;
     left: 55%;
   }
 
